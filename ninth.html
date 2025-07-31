@@ -11,19 +11,20 @@
             <link rel="stylesheet" href="canvas.css">
             <script src="canvas.js"></script>
             <title>信丰八中2020级10班回忆</title>
+            <script>
+            // 在DOM加载完成后立即执行
+            document.addEventListener('DOMContentLoaded', function() {
+                // 替换当前URL为根路径，不显示文件地址
+                history.replaceState(null, document.title, '/');
+            });
+            
+            // 监听历史记录变化，确保URL始终保持为根路径
+            window.addEventListener('popstate', function() {
+                history.replaceState(null, document.title, '/');
+            });
+            </script>
         </head>
-                <script>
-                // 在页面加载完成后执行
-                window.addEventListener('load', function() {
-                    // 替换当前URL为根路径，不显示文件地址
-                    history.replaceState(null, document.title, '/');
-                });
                 
-                // 监听历史记录变化，确保URL始终保持为根路径
-                window.addEventListener('popstate', function() {
-                    history.replaceState(null, document.title, '/');
-                });
-                </script>
         <div id="Ninth_grade">
             <iframe src="canvas.htm" frameborder="0"  width="100%" height="100%" style="z-index: -1;width: 100%;position: fixed;"></iframe>
             <body>
