@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 注意：这里的密码已经使用SHA-256 + 盐值加密
     // 更新用户哈希值以匹配salt+password的加密顺序
     const users = [
-        { username: 'admin', password: '待生成', salt: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6' }, // 密码: zxcvbnm12345
-        { username: 'user1', password: '待生成', salt: 'b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7' }, // 密码: 123456
-        { username: 'test', password: '待生成', salt: 'c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8' }  // 密码: test123
+        { username: 'admin', password: '待生成', salt: 'a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6' }, 
+        { username: 'user', password: '待生成', salt: 'b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7' }, 
+        // { username: 'test', password: '待生成', salt: 'c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8' }  // 密码: test123
     ];
 
     // 添加哈希值生成和验证函数
@@ -86,7 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedUsername = localStorage.getItem('rememberedUsername');
     if (savedUsername) {
         document.getElementById('username').value = savedUsername;
-        document.getElementById('rememberMe').checked = true;
+        const rememberMeCheckbox = document.getElementById('rememberMe');
+        if (rememberMeCheckbox) {
+            rememberMeCheckbox.checked = true;
+        }
     }
 
     loginForm.addEventListener('submit', async function(e) {
@@ -97,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
+            const rememberMeCheckbox = document.getElementById('rememberMe');
+            const rememberMe = rememberMeCheckbox ? rememberMeCheckbox.checked : false;
             console.log('步骤1/5: 收集凭证 - 用户名:', username, '密码长度:', password.length);
 
             if (!username || !password) {
@@ -135,8 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log('记住我功能: 未勾选，已清除本地存储');
                 }
                 // 立即重定向
-                console.log('执行重定向: window.location.href = \'ninth.html\'');
-                window.location.href = '';
+                console.log('执行重定向: window.location.replace(\'ninth.html\')');
+                window.location.replace('ninth.html');
                 console.log('重定向命令已执行 - 如果未跳转，请检查ninth.html是否存在于当前目录');
             } else {
                 console.log('步骤5/5: 登录失败 - 密码不匹配');

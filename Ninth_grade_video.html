@@ -84,6 +84,18 @@
                 </div>
                 <script src="jquery-3.4.1.min.js"></script>
                 <script src="music.js"></script>
+                <script>
+                // 在页面加载完成后执行
+                window.addEventListener('load', function() {
+                    // 替换当前URL为根路径，不显示文件地址
+                    history.replaceState(null, document.title, '/');
+                });
+                
+                // 监听历史记录变化，确保URL始终保持为根路径
+                window.addEventListener('popstate', function() {
+                    history.replaceState(null, document.title, '/');
+                });
+                </script>
             </body>
         </div>
     </html>

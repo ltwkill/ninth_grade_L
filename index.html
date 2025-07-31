@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录页面</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="login.css">
-    <script src="login.js"></script>    
+    <title>信丰八中2020级10班回忆</title>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <h2>用户登录</h2>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="username">用户名</label>
-                    <input type="text" id="username" name="username" required placeholder="请输入用户名">
+    <section>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="square" style="--i:5;"></div>
+            
+            <div class="container"> 
+                <div class="form"> 
+                    <h2>用户登录</h2>
+                    <form id="loginForm">
+                        <div class="inputBx">
+                            <input type="text" id="username" name="username" required="required" placeholder="请输入用户名">
+                            <span>用户名</span>
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="inputBx password">
+                            <input id="password" type="password" name="password" required="required" placeholder="请输入密码">
+                            <span>密码</span>
+                            <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="remember-me">
+                            <!-- <input type="checkbox" id="rememberMe"> 
+                            <label for="rememberMe">记住账号</label> -->
+                        </div>
+                        <div class="inputBx">
+                            <button type="submit" class="login-btn">登录</button>
+                        </div>
+                        <h3 class="ltw">信丰八中2020级10班回忆</h3>
+                        <!-- <div class="login-links">
+                            <a href="#">忘记密码?</a>
+                            <a href="#">注册账号</a>
+                        </div> -->
+                    </form>
                 </div>
-                <div class="input-group">
-                    <label for="password">密码</label>
-                    <input type="password" id="password" name="password" required placeholder="请输入密码">
-                </div>
-                <div class="remember-me">
-                    <input type="checkbox" id="rememberMe">
-                    <label for="rememberMe">记住我</label>
-                </div>
-                <button type="submit" class="login-btn">登录</button>
-                <div class="login-links">
-                    <a href="#">忘记密码?</a>
-                    <a href="#">注册账号</a>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
+    </section>
+    <script src="login.js"></script>
+    <script>
+        // 密码显示/隐藏功能
+        function show_hide_password(field) {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            field.classList.toggle('view');
+            return false;
+        }
+    </script>
 </body>
 </html>
