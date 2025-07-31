@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="icon" href="icon.ico" type="image/x-icon">
+            <link rel="stylesheet" href="font/iconfont.css">
+            <link rel="stylesheet" href="music.css">
+            <link rel="stylesheet" href="Ninth_grade.css">
+            <link rel="stylesheet" href="canvas.css">
+            <script src="canvas.js"></script>
+            <title>信丰八中2020级10班回忆</title>
+        </head>
+        <div id="Ninth_grade">
+            <iframe src="canvas.htm" frameborder="0"  width="100%" height="100%" style="z-index: -1;width: 100%;position: fixed;"></iframe>
+            <body>
+                <h1 class="title">
+                    信丰县第八中学2020级10班回忆
+                </h1>
+                <h2 class="warning">
+                    警告：请勿分享此网站
+                </h2>
+                <h3 class="outhor">
+                    本网页由信丰县第八中学2020级10班刘庭洧制作
+                </h3>
+                <a class="Ninth_grade" href="Ninth_grade_picture.html">
+                    照片
+                </a>
+                <a class="Ninth_grade" href="Ninth_grade_video.html">
+                    视频
+                </a>
+                <h4 class="github">
+                    本页面由github提供服务器
+                </h4>
+                <div id="player">
+                    <!-- 歌曲信息模块 -->
+                    <div id="player-content1">
+                        <!-- 歌曲名 -->
+                        <div class="music-name"></div>
+                        <!-- 歌手名 -->
+                        <div class="artist-name"></div>
+                        <!-- 歌曲时间 -->
+                        <div class="time">
+                            <!-- 当前播放的时间 -->
+                            <div class="current-time"></div>
+                            <!-- 歌曲总时长 -->
+                            <div class="total-time"></div>
+                        </div>
+                        <!-- 进度条 -->
+                        <div id="s-area">
+                            <!-- 鼠标移动到进度条上，显示的时间信息 -->
+                            <div id="ins-time"></div>
+                            <!-- 鼠标移动到进度条上，进度条变暗部分-->
+                            <div id="s-hover"></div>
+                            <!-- 表示当前歌曲播放进度的蓝色进度条 -->
+                            <div id="seek-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- 控制模块 -->
+                    <div id="player-content2">
+                        <!-- 左侧歌曲封面旋转模块 -->
+                            <div class="music-imgs">
+                            <!-- 封面图 -->
+                            <div class="img"></div>
+                            <!-- 歌曲缓冲时的提示文字 -->
+                            <div id="buffer-box">缓冲…</div>
+                        </div>
+                        <!-- 右侧歌曲操作模块 -->
+                        <div class="player-controls">
+                            <!-- 上一首按钮 -->
+                            <div class="btn prev iconfont">&#xe603;</div>
+                            <!-- 暂停/播放 按钮 -->
+                            <div class="btn play-pause icon-zanting iconfont"></div>
+                            <!-- 下一首按钮 -->
+                            <div class="btn next iconfont">&#xe602;</div>
+                        </div>
+                    </div>
+                </div>
+                <script src="jquery-3.4.1.min.js"></script>
+                <script src="music.js"></script>
+                <!-- <script src="canvas.js"></script>  -->
+            </body>
+        </div>
+    </html>
