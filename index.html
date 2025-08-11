@@ -1,6 +1,73 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <script>
+        // // 在DOM加载完成后立即执行
+        // document.addEventListener('DOMContentLoaded', function() {
+        // // 替换当前URL为根路径，不显示文件地址
+        // history.replaceState(null, document.title, '/');
+        // });
+        // // 监听历史记录变化，确保URL始终保持为根路径
+        // window.addEventListener('popstate', function() {
+        // history.replaceState(null, document.title, '/');
+        // });
+        // 高级防调试措施
+    (function() {
+        // 1. 检测开发者工具打开
+        let devToolsOpen = false;
+        const threshold = 160;
+        const detectDevTools = () => {
+            if (window.outerWidth - window.innerWidth > threshold ||
+                window.outerHeight - window.innerHeight > threshold) {
+                location.replace('https://ltwkill.github.io');
+                if (!devToolsOpen) {
+                    devToolsOpen = true;
+                    alert('检测到开发者工具，页面回退');
+                    // location.reload();
+                }
+            } else {
+                devToolsOpen = false;
+            }
+            requestAnimationFrame(detectDevTools);
+        };
+        detectDevTools();
+
+        // 2. 禁止快捷键
+        document.addEventListener('keydown', function(e) {
+            const forbiddenKeys = [
+                { key: 'F12' },
+                { key: 'I', ctrlKey: true, shiftKey: true },
+                { key: 'J', ctrlKey: true, shiftKey: true },
+                { key: 'C', ctrlKey: true, shiftKey: true },
+                { key: 'U', ctrlKey: true }
+            ];
+
+            for (const combo of forbiddenKeys) {
+                let match = true;
+                for (const [key, value] of Object.entries(combo)) {
+                    if (e[key] !== value) {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('禁止使用开发者工具');
+                    return false;
+                }
+            }
+            return true;
+        }, true);
+
+        // 3. 防止右键菜单
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        console.log('=== 高级防调试措施完成 ===');
+    })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,11 +89,11 @@
                 <div class="form"> 
                     <h2>用户登录</h2>
                     <form id="loginForm">
-                        <div class="inputBx">
+                        <!-- <div class="inputBx">
                             <input type="text" id="username" name="username" required="required" placeholder="请输入用户名">
                             <span>用户名</span>
                             <i class="fas fa-user-circle"></i>
-                        </div>
+                        </div> -->
                         <div class="inputBx password">
                             <input id="password" type="password" name="password" required="required" placeholder="请输入密码">
                             <span>密码</span>
