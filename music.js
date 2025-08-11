@@ -20,10 +20,10 @@ $(function(){
     
     // 一些计算所需的变量
     var seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0
-    var musicImgsData = ['/ninth_grade_L-master/bg.jpg']    // 图片地址数组
+    var musicImgsData = ['/ninth_grade_L/bg.jpg']    // 图片地址数组
     var musicNameData = ['骄傲的少年'];                   // 歌曲名数组
     var artistNameData = ['南征北战NZBZ']            // 创作歌手数组
-    var musicUrls=['/ninth_grade_L-master/music.mp3'];// 歌曲mp3数组
+    var musicUrls=['/ninth_grade_L/music.mp3'];// 歌曲mp3数组
     var currIndex = -1;              // 当前播放索引
     
     var buffInterval = null          // 初始化定时器 判断是否需要缓冲
